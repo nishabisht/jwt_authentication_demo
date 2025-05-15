@@ -20,6 +20,7 @@ public class UserController {
     public List<Users> getUser(){
         return userService.getAllUser();
     }
+
     @PostMapping("/register")
     public Users registered(@RequestBody Users user){
         return  userService.saveUser(user);
@@ -29,7 +30,7 @@ public class UserController {
     @PostMapping("/login")
     public String login(@RequestBody Users user){
         System.out.println(user);
-        return userService.verify(user);
+        return "Jwt token after successful login : "+userService.verify(user);
     }
 
 }

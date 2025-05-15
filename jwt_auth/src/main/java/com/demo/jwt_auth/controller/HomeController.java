@@ -11,6 +11,6 @@ public class HomeController {
     @GetMapping("/")
     public String greet(HttpServletRequest request){
 
-        return "Welcome to application "+request.getSession().getId();
+        return "Welcome to application and this is your session-id : "+request.getSession().getId();
     }
 }

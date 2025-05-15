@@ -42,8 +42,8 @@ public class SecurityConfig {
         http.csrf(customizer -> customizer.disable())
                 // Allow h2-console access
                 .authorizeHttpRequests(request -> request
-                        .requestMatchers("/h2-console/**").permitAll()  // Ensure h2-console is permitted
-                        .requestMatchers("register","login").permitAll()//permit login and registration to access without auth
+                        .requestMatchers("/h2-console/**","/swagger-ui/**","/v3/api-docs/","/swagger-ui.html").permitAll()  // Ensure h2-console and swagger is permitted
+                        .requestMatchers("/register","/login").permitAll()//permit login and registration to access without auth
                         .anyRequest().authenticated())  // All other requests require authentication
                 // to Use HTTP basic authentication
                 .httpBasic(Customizer.withDefaults())
